@@ -1,0 +1,53 @@
+.wrapper {
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.createTasks {
+    width: 100%;
+    display: flex;
+    margin-top: calc(0px - 3.375rem - 6px);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.createTasks input {
+    width: 39.875rem;
+    height: 3.375rem;
+    padding: 1rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--gray-500);
+    color: var(--gray-200);
+}
+
+.createTasks button {
+    width: 5.625rem;
+    height: 3.375rem;
+    line-height: 1.4;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--blue-dark);
+    color: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0.5rem;
+    transition: background-color .1s ease-in-out;
+}
+
+.createTasks button:hover {
+    background: var(--blue);
+}
+
+.content {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}

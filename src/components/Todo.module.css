@@ -1,0 +1,78 @@
+.todo {
+    width: 100%;
+    min-width: 46rem;
+    display: flex;
+    padding: 1rem;
+    border: 1px solid var(--gray-400);
+    border-radius: 8px;
+    align-items: flex-start;
+    justify-content: space-between; 
+    background: var(--gray-500);
+    max-width: 46rem;
+    gap: 1rem;
+}
+
+.todo + .todo {
+    margin-top: 0.75rem;
+}
+
+.todoText {
+    width: 90%;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.todoTextWithLine {
+    width: 90%;
+    font-size: 0.875rem;
+    color: var(--gray-300);
+    text-decoration: line-through;
+    line-height: 1.4;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.todoClickable {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.checked {
+    color: var(--purple-dark);
+    transition: color .2s;
+}
+
+.checked:hover {
+    color: var(--purple);
+}
+
+.notChecked {
+    color: var(--blue);
+    transition: color .2s;
+    border: 0;
+    border-radius: 2px;
+}
+
+.notChecked:hover {
+    color: var(--blue-dark);
+    opacity: 40%;
+}
+
+.trashButton button{
+    line-height: 0;
+    background: transparent;
+    border: none;
+    color: var(--gray-300);
+    cursor: pointer;
+    transition: .2s;
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+}
+
+.trashButton button:hover{
+    color: var(--danger);
+    background-color: var(--gray-400);
+ }
