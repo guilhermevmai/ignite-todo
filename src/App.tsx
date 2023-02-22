@@ -1,7 +1,11 @@
 import { PlusCircle } from 'phosphor-react';
-import { ChangeEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, InvalidEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
+import {version} from '../package.json';
+
 import styles from './App.module.css';
+
 import { Header } from './components/Header';
 import { NoTasks } from './components/NoTasks';
 
@@ -16,8 +20,21 @@ interface Todo {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<Todo[]>([])
+  const [tasks, setTasks] = useState<Todo[]>(() => {
+    const storedStateAsJson = localStorage.getItem(
+      `@ignite-todo:tasks-${version}`,
+    )
+    if (storedStateAsJson) {
+      return JSON.parse(storedStateAsJson)
+    }
+    return []
+  })
   const [newTask, setNewTask] = useState<string>('');
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(tasks)
+    localStorage.setItem(`@ignite-todo:tasks-${version}`, stateJSON)
+  }, [tasks])
 
   const completeTask = (id:string) => {
     setTasks((tasks) => {
@@ -61,7 +78,7 @@ function App() {
         text: newTask,
         isCompleted: false
       };
-      setTasks([...tasks, newCreatedTask]);
+      setTasks((state) => [...state, newCreatedTask]);
       setNewTask('');
     }
   }
